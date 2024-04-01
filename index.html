@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+
+<!--<script src="https://kit.fontawesome.com/7712a3162d.js" crossorigin="anonymous"></script>-->
+
+  <title>Frontend Mentor | E-commerce product page</title>
+
+  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+  <style>
+    .attribution { font-size: 11px; text-align: center; }
+    .attribution a { color: hsl(228, 45%, 44%); }
+  </style>
+</head>
+<body>
+ 
+    <header>
+
+      <div class="hamburger">
+        <img id="open" class="open" src="images/icon-menu.svg">
+        <img id="close-icon" class="hide" src="images/icon-close.svg">
+      </div>
+     
+       <div class="topflex">
+         <img src="images/logo.svg">
+       </div>
+
+       <div class="flex-group1">
+        <p id="cartAmount" class="cart-amount hidden">0</p>
+        <img class="cart" src="images/icon-cart.svg">
+        <img class="avatar" src="images/image-avatar.png" width="25rem">
+      </div>
+
+<div id="mobileModal" class="mymodal"></div>
+
+  <div class="primary-navigation slide1" id="primary-nav">
+    <ul class="nav-menu">
+      <li><a href="#">Collections</a></li>
+      <li><a href="#"> Men</a></li>
+      <li><a href="#">Women</a></li>
+      <li><a href="#">About</a></li>
+      <li><a href="#">Contact</a></li>
+    </ul>
+ </div>
+
+  <hr class="desktop-hr">
+</header>
+
+<!--EMPTY CART-->
+
+
+ <div class="cart-card" id="cartCard">
+     <p class="cart2">Cart</p>
+     <hr class="line-break">
+     <p class="cart-empty">Your cart is empty</p>
+   </div>
+
+<!--FILLED CART-->
+
+<div class="cart-filled hidden">
+  <p class="cart2">Cart</p>
+  <hr class="line-break">
+  <div class="products">
+<!-- <div class="flex-fall">
+    <img src="images/image-product-1-thumbnail.jpg" width="50px">
+    <p class="fall-limited">Fall Limited Edition Sneakers</p>
+    <span class="delete"><img src="images/icon-delete.svg"></span>
+  </div>
+  <p class="price">$125.00 x <span id="upperBtn" class="quantity">3</span> <span id="totalPrice" >$375.00</span></p>
+-->
+<!--<button class="checkout" type="submit">Checkout</button>-->
+<p class="cart-empty">Your cart is empty</p>
+  </div>
+</div>
+
+  <main class="container2">
+    <div class="left-section">
+      <img class="product1" src="images/image-product-1.jpg" width="375px">
+    <div class="arrows">
+        <img  class="previous" onclick="changeSlide(-1)" src="images/icon-previous.svg">
+        <img  class="next" onclick="changeSlide(1)" src="images/icon-next.svg">
+      </div>
+    
+        <div class="thumbnail">
+          <img src="images/image-product-1-thumbnail.jpg" onclick="openLightbox();toSlide(1)" class="hover-shadow preview" width="90px">
+          <img src="images/image-product-2-thumbnail.jpg" onclick="openLightbox();toSlide(2)" class="hover-shadow preview" width="90px">
+          <img src="images/image-product-3-thumbnail.jpg" onclick="openLightbox();toSlide(3)" class="hover-shadow preview" width="90px">
+          <img src="images/image-product-4-thumbnail.jpg" onclick="openLightbox();toSlide(4)" class="hover-shadow preview" width="90px">
+        </div>
+    
+    </div>
+
+    <div id="Lightbox" class="modal">
+
+      <span class="close1 pointer" onclick="closeLightbox()">&times;</span>
+      <div class="modal-content">
+        <div class="slide">
+          <img src="images/image-product-1.jpg" class="image-slide">
+        </div>
+
+        <div class="slide">
+          <img src="images/image-product-2.jpg" class="image-slide">
+        </div>
+
+        <div class="slide">
+          <img src="images/image-product-3.jpg" class="image-slide">
+        </div>
+
+        <div class="slide">
+          <img src="images/image-product-4.jpg" class="image-slide">
+        </div>
+      
+           <img <a class="previous" onclick="changeSlide(-1)" src="images/icon-previous.svg" fill="red"></a>
+           <img <a class="next" onclick="changeSlide(1)" src="images/icon-next.svg"></a>
+
+          <div class="thumbnail">
+            <img src="images/image-product-1-thumbnail.jpg" onclick="openLightbox();toSlide(1)" class="hover-shadow preview" width="90px">
+            <img src="images/image-product-2-thumbnail.jpg" onclick="openLightbox();toSlide(2)" class="hover-shadow preview" width="90px">
+            <img src="images/image-product-3-thumbnail.jpg" onclick="openLightbox();toSlide(3)" class="hover-shadow preview" width="90px">
+            <img src="images/image-product-4-thumbnail.jpg" onclick="openLightbox();toSlide(4)" class="hover-shadow preview" width="90px">
+          </div>
+      </div>
+        
+      
+    </div> 
+
+    <div class="right-section">
+       <p class="product-name">Sneaker Company</p>
+       <h1>Fall Limited Edition Sneakers</h1>
+
+       <p class="low-profile">These low-profile sneakers are your perfect casual wear companion. Featuring a 
+          durable rubber outer sole, they’ll withstand everything the weather can offer.</p>
+        <div class="flex-group2">
+          <p class="new-price">$125.00</p>
+          <p class="discount">50%</p>
+          <p class="original-price">$250.00</p>
+        </div>
+
+        <div class="flex-buttons">
+          <button class="plus-minus">
+             <span><img class="minus" src="images/icon-minus.svg"></span>
+             <span id="btnQuantity" class="quantity">0</span> 
+             <span><img class="plus" src="images/icon-plus.svg"></span>
+          </button>
+
+        <div class="button">
+          <button>
+            <img class="button-cart" src="images/icon-cart.svg">Add to cart
+          </button>
+        </div>
+
+      </div>
+   </div>
+
+
+</main>
+  <div class="attribution">
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
+    Coded by <a href="#">Kim Carney</a>.
+  </div>
+
+  <script src="main.js"></script>
+</body>
+</html>
